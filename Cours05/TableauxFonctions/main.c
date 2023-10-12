@@ -70,6 +70,16 @@ void fonction_bidon(int a)
     a = a * 20;
 }
 
+/*
+ * Notez ici que la fonction va modifier le
+ * tableau original, car un tableau est en
+ * réalité un pointeur.
+ * Toute modification dans le tableau "tableau"
+ * va changer le contenu à la case correspondante
+ * du tableau qui a été passé en paramètre lors
+ * de l'appel de la fonction (ici on l'appelle
+ * depuis le main en passant le tableau tab).
+ */
 void mettre_a_zero(int tableau[], int taille)
 {
     for(int i=0; i<taille; i++)
