@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+
 void min_max_de_3(int val1, int val2, int val3, int* adr_pour_min, int* adr_pour_max)
 {
     int min = val1;
