@@ -65,11 +65,6 @@ double moyenne_tableau_entier(int tableau[], int taille)
     return moyenne;
 }
 
-void fonction_bidon(int a)
-{
-    a = a * 20;
-}
-
 /*
  * Notez ici que la fonction va modifier le
  * tableau original, car un tableau est en
@@ -86,4 +81,18 @@ void mettre_a_zero(int tableau[], int taille)
     {
         tableau[i] = 0;
     }
+}
+
+/*
+ * Ici notre fonction reçoit un entier
+ * (pas un tableau). L'entier "a" est une variable
+ * locale à la fonction. En la modifiant, on modifie
+ * la valeur de cette variable locale.
+ * En quittant la fonction, la variable "a" est
+ * détruite et le calcul qu'on y a stocké est perdu.
+ * Cette fonction n'a donc aucun intérêt.
+ */
+void fonction_bidon(int a)
+{
+    a = a * 20;
 }
