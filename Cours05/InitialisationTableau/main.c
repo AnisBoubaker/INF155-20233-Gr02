@@ -9,6 +9,8 @@ int main() {
     //Le reste des 100 cases du tableau est mis à 0.
     int mon_tab[TAILLE_MAX] = { 10, 20 , 30 , 40 , 50};
 
+    //Ce tableau aura une taille maximale de 5.
+    int tab2[] = {1, 2, 3, 4, 5};
 
     for(int i=0; i< TAILLE_MAX; i++)
     {
