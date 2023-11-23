@@ -1,8 +1,20 @@
 #include <stdio.h>
 #include "t_date.h"
+#include "t_machine.h"
 
 int main() {
     t_date date1, date2;
+
+    t_machine* machine1;
+
+    machine1 = machine_init(1, "A25D08");
+
+
+
+
+
+
+
 
 //    date1.annee = 2022;
 //    date1.mois = DECEMBRE;
@@ -26,19 +38,19 @@ int main() {
 //        printf("Les deux dates sont identiques.\n");
 //    }
 
-    date1.annee = 2022;
-    date1.mois = DECEMBRE;
-    date1.jour = 1;
-
-    if(date_set_date(&date1, 29, FEVRIER, 2021))
-    {
-        printf("La date a ete definie!\n");
-    }
-    else
-    {
-        printf("La date est erronee!\n");
-    }
-    printf("Le contenu de date1: %i/%i/%i", date1.jour, date1.mois, date1.annee);
+//    date1.annee = 2022;
+//    date1.mois = DECEMBRE;
+//    date1.jour = 1;
+//
+//    if(date_set_date(&date1, 29, FEVRIER, 2021))
+//    {
+//        printf("La date a ete definie!\n");
+//    }
+//    else
+//    {
+//        printf("La date est erronee!\n");
+//    }
+//    printf("Le contenu de date1: %i/%i/%i", date1.jour, date1.mois, date1.annee);
 
 
     return 0;
