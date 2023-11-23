@@ -1,15 +1,9 @@
 #include <stdio.h>
+#include "t_lecture.h"
 
 typedef unsigned int uint;
 
-typedef struct lecture{
-    double temperature;
-    double humidite;
-    double co2;
-    int jour;
-    int mois;
-    int annee;
-} t_lecture;
+
 
 //struct lecture
 //{
@@ -23,8 +17,6 @@ typedef struct lecture{
 //
 //typedef struct lecture t_lecture;
 
-void t_lecture_afficher(const t_lecture* lec);
-double t_lecture_moyenne_temps(t_lecture lectures[], int taille);
 
 int main() {
 
@@ -76,32 +68,7 @@ int main() {
     return 0;
 }
 
-void t_lecture_afficher(const t_lecture* lec)
-{
-    printf("Date: %i/%i/%i\n", (*lec).jour, (*lec).mois, (*lec).annee);
-    printf("Temperature: %.2lf\n", lec->temperature);
-    printf("Humidite: %.2lf\n", lec->humidite);
-    printf("Concentration CO2: %.2lf\n", (*lec).co2);
 
-    //(*lec).humidite = 0;
-
-    //Aucun effet car le passage des enregistrements se fait par copie.
-    //lec.humidite = 0;
-}
-
-/*
- * Écrire la fonction `t_lecture_moyenne_temps` qui reçoit un tableau
- * de lectures et qui retourne la moyenne des températures.
- */
-double t_lecture_moyenne_temps(t_lecture lectures[], int taille)
-{
-    double somme = 0;
-    for(int i=0; i<taille; i++)
-    {
-        somme += lectures[i].temperature;
-    }
-    return somme / taille;
-}
 
 
 
