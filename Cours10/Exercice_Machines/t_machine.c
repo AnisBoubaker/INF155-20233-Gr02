@@ -35,6 +35,12 @@ t_machine* machine_init(int num, const char* num_modele)
     return nouv_machine;
 }
 
+void machine_free(t_machine* machine)
+{
+    free(machine->num_modele);
+    free(machine);
+}
+
 
 void machine_afficher(const t_machine* m)
 {

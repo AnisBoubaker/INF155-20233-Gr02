@@ -34,6 +34,14 @@ t_machine* machine_init(int num, const char* num_modele);
 
 
 /*
+Libère l'espace mémoire d'une machine.
+ENTREES:
+machine (référence vers une machine): la machine à libérer SORTIE:
+Aucune.
+*/
+void machine_free(t_machine* machine);
+
+/*
  * Fonction qui affiche une machine dans la console
  */
 void machine_afficher(const t_machine* m);
