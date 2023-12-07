@@ -12,6 +12,8 @@
 
 typedef enum categorie { CAT1, CAT2, CAT3, CAT4 } e_categorie;
 
+#define NB_CATEGORIES 4
+
 typedef struct t_machine {
     int num;
     char* num_modele;
@@ -19,6 +21,10 @@ typedef struct t_machine {
     t_date date_mise_service;
     t_date date_maintenance;
 } t_machine;
+
+//JE donne le nom t_machine_ptr aux él;éments de type t_machine*
+typedef t_machine* t_machine_ptr;
+
 
 /*
 Alloue et initialise une nouvelle machine. Le numéro de la machine et
@@ -66,5 +72,18 @@ SORTIE:
 Tableau dynamique de références vers des machines qui doivent être maintenues.
 */
 t_machine** machines_a_maintenir(t_machine* liste_machines[], int nb_machines, t_date date_min,int* nb_a_maintenir);
+
+
+
+/*
+ * Écrire la fonction machine_classer_categories qui reçoit un tableau de références
+ * vers des machines et qui les classe par catégorie. Votre fonction retourne un tableau
+ * à deux dimensions de références vers des machines.
+ *
+ * Il n’y aura pas plus de 100 machines par catégorie.
+ */
+t_machine*** machine_classer_machines(t_machine* [], int taille);
+
+
 
 #endif //EXERCICE_MACHINES_T_MACHINE_H

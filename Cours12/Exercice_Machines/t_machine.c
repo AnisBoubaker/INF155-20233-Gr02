@@ -108,7 +108,43 @@ t_machine** machines_a_maintenir(t_machine* liste_machines[],
     return a_maintenir;
 }
 
+t_machine_ptr** machine_classer_machines(t_machine_ptr liste_machines[], int taille)
+{
+    t_machine_ptr** tab_2d;
+    int compteurs[NB_CATEGORIES] = {0};
 
+    tab_2d = (t_machine_ptr**)malloc(sizeof(t_machine_ptr*)*NB_CATEGORIES);
+    if(tab_2d == NULL)
+    {
+        return NULL;
+    }
+    for(int i=0; i<NB_CATEGORIES; i++)
+    {
+        tab_2d[i] = malloc(sizeof(t_machine_ptr)*100);
+        if(tab_2d[i] == NULL)
+        {
+            for(int j=0; j<i; j++)
+            {
+                free(tab_2d[j]);
+            }
+            free(tab_2d);
+            return NULL;
+        }
+    }
+
+    for(int i=0; i<taille; i++)
+    {
+        int colonne = compteurs[ liste_machines[i]->categorie];
+        int ligne = liste_machines[i]->categorie;
+        tab_2d[ ligne ][ colonne ] = liste_machines[i];
+
+        //On incrmeente le compteur
+        compteurs[ liste_machines[i]->categorie ] ++;
+    }
+
+
+    return tab_2d;
+}
 
 
 
