@@ -82,8 +82,19 @@ t_machine** machines_a_maintenir(t_machine* liste_machines[], int nb_machines, t
  *
  * Il n’y aura pas plus de 100 machines par catégorie.
  */
-t_machine*** machine_classer_machines(t_machine* [], int taille);
+t_machine_ptr** machine_classer_machines(t_machine_ptr [], int taille);
 
+
+/*
+ * Écrire la fonction machine_sauvegarder_machines qui crée un fichier texte ayant
+ * le format suivant :
+Nb_machines
+id_machine1 num_modele jour_mes mois_mes annee_mes jour_main mois_main annee_main
+id_machine2 num_modele jour_mes mois_mes annee_mes jour_main mois_main annee_main
+id_machine3 num_modele jour_mes mois_mes annee_mes jour_main mois_main annee_main
+...
+ */
+int machine_sauvegarder_machines(t_machine* machines[], int nb, char* nom_fichier);
 
 
 #endif //EXERCICE_MACHINES_T_MACHINE_H

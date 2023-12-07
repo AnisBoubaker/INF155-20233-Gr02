@@ -147,6 +147,35 @@ t_machine_ptr** machine_classer_machines(t_machine_ptr liste_machines[], int tai
     return tab_2d;
 }
 
+int machine_sauvegarder_machines(t_machine* machines[], int nb, char* nom_fichier)
+{
+    FILE* sauvegarde;
+
+    sauvegarde = fopen(nom_fichier, "w");
+    if( sauvegarde == NULL)
+    {
+        return 0;
+    }
+
+    //On écrit le nombre de machines
+    fprintf(sauvegarde, "%i\n", nb);
+
+    for(int i=0; i<nb; i++)
+    {
+        fprintf(sauvegarde, "%i %s %i %i %i %i %i %i\n",
+                machines[i]->num,
+                machines[i]->num_modele,
+                machines[i]->date_mise_service.jour,
+                machines[i]->date_mise_service.mois,
+                machines[i]->date_mise_service.annee,
+                machines[i]->date_maintenance.jour,
+                machines[i]->date_maintenance.mois,
+                machines[i]->date_maintenance.annee);
+    }
+
+    fclose(sauvegarde);
+    return 1;
+}
 
 
 
