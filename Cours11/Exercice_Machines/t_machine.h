@@ -10,9 +10,12 @@
 #include <string.h>
 #include "t_date.h"
 
+typedef enum categorie { CAT1, CAT2, CAT3, CAT4 } e_categorie;
+
 typedef struct t_machine {
     int num;
     char* num_modele;
+    e_categorie categorie;
     t_date date_mise_service;
     t_date date_maintenance;
 } t_machine;
