@@ -71,6 +71,7 @@ void machine_jeu_machines(t_machine* machines[], int nb)
         machines[i] = machine_init(i, num_modele);
         date_set_date(&(machines[i]->date_mise_service), nb_aleatoire(1, 28), nb_aleatoire(1, 12), 2023);
         date_set_date(&(machines[i]->date_maintenance), nb_aleatoire(1, 28), nb_aleatoire(1, 12), 2023);
+        machines[i]->categorie = nb_aleatoire(0, NB_CATEGORIES-1);
     }
 }
 
@@ -120,7 +121,7 @@ t_machine_ptr** machine_classer_machines(t_machine_ptr liste_machines[], int tai
     }
     for(int i=0; i<NB_CATEGORIES; i++)
     {
-        tab_2d[i] = malloc(sizeof(t_machine_ptr)*100);
+        tab_2d[i] = calloc(sizeof(t_machine_ptr), 100);
         if(tab_2d[i] == NULL)
         {
             for(int j=0; j<i; j++)
