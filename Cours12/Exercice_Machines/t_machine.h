@@ -97,4 +97,10 @@ id_machine3 num_modele jour_mes mois_mes annee_mes jour_main mois_main annee_mai
 int machine_sauvegarder_machines(t_machine* machines[], int nb, char* nom_fichier);
 
 
+/*
+ *
+ */
+t_machine_ptr* machine_charge_machines(const char* nom_fichier, int* nb_machines);
+
+
 #endif //EXERCICE_MACHINES_T_MACHINE_H

@@ -178,6 +178,48 @@ int machine_sauvegarder_machines(t_machine* machines[], int nb, char* nom_fichie
 }
 
 
+t_machine_ptr* machine_charge_machines(const char* nom_fichier, int* nb_machines)
+{
+    FILE* fichier;
+
+    t_machine_ptr* tab;
+
+    fichier = fopen(nom_fichier, "r");
+    if(fichier == NULL)
+    {
+        return NULL;
+    }
+
+    fscanf(fichier, "%i", nb_machines);
+
+    //Allocation du tableau à retourner
+    tab = (t_machine_ptr*)malloc(sizeof(t_machine_ptr) * *nb_machines);
+    if(tab == NULL)
+    {
+        fclose(fichier);
+        return NULL;
+    }
+
+    for(int i=0; i< *nb_machines; i++)
+    {
+        int num;
+        char num_modele[100];
+        fscanf(fichier, "%i %s", &num, num_modele);
+
+        tab[i] = machine_init( num, num_modele );
+        fscanf(fichier, "%i %i %i %i %i %i",
+               &(tab[i]->date_mise_service.jour),
+               &(tab[i]->date_mise_service.mois),
+               &(tab[i]->date_mise_service.annee),
+               &(tab[i]->date_maintenance.jour),
+               &(tab[i]->date_maintenance.mois),
+               &(tab[i]->date_maintenance.annee)
+               );
+    }
+    fclose(fichier);
+    return tab;
+}
+
 
 
 
