@@ -121,7 +121,7 @@ t_machine_ptr** machine_classer_machines(t_machine_ptr liste_machines[], int tai
     }
     for(int i=0; i<NB_CATEGORIES; i++)
     {
-        tab_2d[i] = calloc(sizeof(t_machine_ptr), 100);
+        tab_2d[i] = (t_machine_ptr*)calloc(sizeof(t_machine_ptr), 100);
         if(tab_2d[i] == NULL)
         {
             for(int j=0; j<i; j++)
